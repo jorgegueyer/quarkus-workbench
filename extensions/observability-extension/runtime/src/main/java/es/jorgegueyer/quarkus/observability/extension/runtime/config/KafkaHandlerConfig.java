@@ -1,35 +1,38 @@
 package es.jorgegueyer.quarkus.observability.extension.runtime.config;
 
-import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.smallrye.config.ConfigMapping;
+import io.smallrye.config.WithDefault;
+import io.smallrye.config.WithName;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-@ConfigRoot(phase = ConfigPhase.RUN_TIME, name = "log.handler.kafka")
-public class KafkaHandlerConfig {
+@ConfigMapping(prefix = "log.handler.kafka")
+@ConfigRoot(phase = ConfigPhase.BUILD_AND_RUN_TIME_FIXED)
+public interface KafkaHandlerConfig {
 
     /**
      * Determine whether to enable the Kafka logging handler
      */
-    @ConfigItem
-    public boolean enabled;
+    @WithDefault("false")
+    boolean enabled();
 
     /**
      * List of brokers
      */
-    @ConfigItem
-    public List<String> brokerList;
+    @WithName("broker-list")
+    Optional<List<String>> brokerList();
 
     /**
      * Topic
      */
-    @ConfigItem
-    public String topic;
+    Optional<String> topic();
 
     /**
      * Kafka Producer properties
      */
-    public Map<String, Object> properties;
+    Map<String, Object> properties();
 }
