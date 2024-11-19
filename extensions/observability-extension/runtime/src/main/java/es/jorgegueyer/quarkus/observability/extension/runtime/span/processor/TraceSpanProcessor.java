@@ -5,10 +5,8 @@ import io.opentelemetry.sdk.common.CompletableResultCode;
 import io.opentelemetry.sdk.trace.ReadWriteSpan;
 import io.opentelemetry.sdk.trace.ReadableSpan;
 import io.opentelemetry.sdk.trace.SpanProcessor;
-import jakarta.enterprise.context.ApplicationScoped;
 import org.jboss.logging.Logger;
 
-@ApplicationScoped
 public class TraceSpanProcessor implements SpanProcessor {
 
     private static final Logger logger = Logger.getLogger(TraceSpanProcessor.class.getName());
@@ -18,7 +16,7 @@ public class TraceSpanProcessor implements SpanProcessor {
         // Callback invoked when span is started.
         // Enrich the record with a custom attribute.
         var spanData = span.toSpanData();
-        logger.info(String.format("onStart = traceId: %s, parentSpanId: %s, spanId: %s, kind: %s",
+        logger.info(String.format("onStart - traceId: %s, parentSpanId: %s, spanId: %s, kind: %s",
                 spanData.getTraceId(),
                 spanData.getParentSpanId(),
                 spanData.getSpanId(),
