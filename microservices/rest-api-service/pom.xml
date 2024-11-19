@@ -4,14 +4,13 @@
         <groupId>es.jorgegueyer.quarkus</groupId>
         <artifactId>microservices</artifactId>
         <version>${revision}</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>rest-api-service</artifactId>
+
     <name>Rest Api Service</name>
     <description>Quarkus Rest Api microservice</description>
-    <version>${revision}</version>
 
     <dependencies>
         <dependency>
@@ -25,6 +24,10 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest-client-jackson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>es.jorgegueyer.quarkus</groupId>
+            <artifactId>observability-extension</artifactId>
         </dependency>
 
         <!-- Test dependencies -->

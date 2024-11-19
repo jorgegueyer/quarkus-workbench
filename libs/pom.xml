@@ -9,7 +9,6 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>libs</artifactId>
-    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>Libs</name>

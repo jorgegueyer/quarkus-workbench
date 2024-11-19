@@ -4,12 +4,10 @@
         <groupId>es.jorgegueyer.quarkus</groupId>
         <artifactId>quarkus-workbench</artifactId>
         <version>${revision}</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>extensions</artifactId>
-    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>Extensions</name>
@@ -45,8 +43,8 @@
                     <configuration>
                         <systemPropertyVariables>
                             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                            <!--<maven.home>${maven.home}</maven.home>-->
-                            <!--<maven.repo>${settings.localRepository}</maven.repo>-->
+                            <maven.home>${maven.home}</maven.home>
+                            <maven.repo>${settings.localRepository}</maven.repo>
                         </systemPropertyVariables>
                     </configuration>
                 </plugin>
@@ -56,8 +54,8 @@
                     <configuration>
                         <systemPropertyVariables>
                             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                            <!--<maven.home>${maven.home}</maven.home>-->
-                            <!--<maven.repo>${settings.localRepository}</maven.repo>-->
+                            <maven.home>${maven.home}</maven.home>
+                            <maven.repo>${settings.localRepository}</maven.repo>
                         </systemPropertyVariables>
                     </configuration>
                 </plugin>
