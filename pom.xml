@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>es.jorgegueyer.quarkus</groupId>
     <artifactId>quarkus-workbench</artifactId>
     <version>${revision}</version>
-
     <packaging>pom</packaging>
+
+    <name>Quarkus Workbench</name>
+    <description>Quarkus playground</description>
 
     <properties>
         <revision>1.0.0-SNAPSHOT</revision>
@@ -15,17 +18,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <failsafe-plugin.version>${surefire-plugin.version}</failsafe-plugin.version>
         <surefire-plugin.version>3.3.1</surefire-plugin.version>
+        <failsafe-plugin.version>${surefire-plugin.version}</failsafe-plugin.version>
         <flatten-maven-plugin.version>1.2.5</flatten-maven-plugin.version>
     </properties>
-
 
     <modules>
         <module>microservices</module>
         <module>extensions</module>
         <module>libs</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>es.jorgegueyer.quarkus</groupId>
+                <artifactId>observability-extension</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>
